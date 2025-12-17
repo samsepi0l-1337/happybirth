@@ -6,6 +6,7 @@
   "author": "",
   "type": "commonjs",
   "main": "main.js",
+  "homepage": "https://samsepi0l-1337.github.io/happybirth/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
