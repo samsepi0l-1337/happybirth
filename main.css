@@ -1,0 +1,161 @@
+body { margin:0; overflow:hidden; }
+main { position:relative; }
+
+.LetterBtn {
+    position:absolute;
+    top:38%;
+    left:71%;
+    width:140px;
+    height:70px;
+    cursor:pointer;
+}
+
+.LetterEmo {
+    position:absolute;
+    top:38%;
+    left:62%;
+    width:100px;
+    height:100px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .4s, transform .4s, top .8s;
+}
+
+.LetterEmo img { width:100%; cursor:pointer; transition:.25s; }
+.LetterEmo:hover img { content:url('./images/emoji2.png'); transform:scale(1.08); }
+
+.LetterEmo .point {
+    position:absolute;
+    top:-6px;
+    right:-6px;
+    width:14px;
+    height:14px;
+    background:#ff4d6d;
+    border-radius:50%;
+    opacity:0;
+}
+
+.LetterEmo.active .point {
+    opacity:1;
+    animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+    0%,100% { transform:scale(.6); opacity:.6; }
+    50% { transform:scale(1.2); opacity:1; }
+}
+
+.LetterPaper {
+    position:absolute;
+    left:45%;
+    bottom:-100%;
+    transform:translateX(-50%);
+    width:450px;
+    opacity:0;
+    transition:bottom .9s, opacity .4s;
+    z-index:5;
+}
+main .LetterPaper {
+    position: absolute;
+    pointer-events: auto;
+    z-index: 10000;
+}
+
+.LetterPaper.show { bottom:5%; opacity:1; }
+
+.LetterPaper img { width:100%; display:none; }
+main .LetterPaper img {
+    pointer-events: none;
+}
+.LetterPaper img.active { display:block; }
+
+.CloseBtn {
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:none;
+    border:0;
+    cursor:pointer;
+    z-index:20;
+}
+main .CloseBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 64px;
+    height: 64px;
+    z-index: 20;
+    cursor: pointer;
+}
+
+.CloseBtn img {
+    display: block;
+    width:64px;
+    pointer-events:none;
+}
+
+.bg {
+    width:1920px;
+    height:100vh;
+    background:url('./images/background.png') center -50px/cover no-repeat;
+}
+
+.BirthdayBtn {
+    position:absolute;
+    top:81%;
+    left:66%;
+    width:230px;
+    height:140px;
+    cursor:pointer;
+}
+
+.BirthdayImg {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:1920px;
+    height:911px;
+    background:rgba(0,0,0,.7);
+    opacity:0;
+    pointer-events:none;
+    transition:.6s;
+}
+
+.BirthdayImg.show { opacity:1; pointer-events:auto; }
+
+.BirthdayImg img {
+    width:800px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.fireworks,
+.birthday-fireworks {
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9999;
+}
+
+.firework {
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:var(--size);
+    height:var(--size);
+    border-radius:50%;
+}
+
+.firework.sparkle {
+    background:radial-gradient(circle at 30% 30%, #fff, var(--color) 40%, transparent 70%);
+    box-shadow:0 0 8px var(--color),0 0 18px var(--color);
+    animation:sparkleExplode 1.6s cubic-bezier(.22,.61,.36,1) forwards;
+}
+
+@keyframes sparkleExplode {
+    from { transform:translate(0,0) scale(.2); opacity:1; }
+    to   { transform:translate(var(--x),var(--y)) scale(.8); opacity:0; }
+}
