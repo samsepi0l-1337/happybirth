@@ -15,3 +15,5 @@
 
 - `main` 브랜치에 push하면 `Actions`에서 `Deploy to GitHub Pages` 워크플로우가 실행됩니다.
 - 완료되면 Pages URL이 생성됩니다. (워크플로우 실행 결과의 `page_url` 참고)
+
+README.md
